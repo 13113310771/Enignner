@@ -121,8 +121,8 @@ void Motor_base_init()
     memset(&Motor_Struct, 0, sizeof(Motor_Struct));
 	}
 
-	{// CLAMP_PITCH INIT
-    Motor_Struct.MOTOR_NAME = CLAMP_PITCH;
+	{// clamp_pitch_and_roll_l INIT
+    Motor_Struct.MOTOR_NAME = clamp_pitch_and_roll_l;
     Motor_Struct.MOTOR_TYPE = M2006;
     Motor_Struct.Brushless.CAN_ID = 2;
     Motor_Struct.Brushless.ESC_ID = 4;
@@ -130,7 +130,7 @@ void Motor_base_init()
     Motor_Struct.Brushless.speed = 0; // 大角度差下速度
     Motor_Struct.Brushless.state = 0;
     Motor_Struct.Brushless.offset_angle_init_flag = 0;
-		Motor_Struct.Brushless.offset_angle_init_speed = -1500;
+		Motor_Struct.Brushless.offset_angle_init_speed = 800;
 
   
 
@@ -138,12 +138,16 @@ void Motor_base_init()
     memset(&Motor_Struct, 0, sizeof(Motor_Struct));
 	}
 
-	{// CLAMP_ROLL INIT
-    Motor_Struct.MOTOR_NAME = CLAMP_ROLL;
-    Motor_Struct.MOTOR_TYPE = SERVO;
-    Motor_Struct.Servo.TIM = TIM4;
-    Motor_Struct.Servo.Compare = 2; // PD13
-    Motor_Struct.Servo.Rotation_range = 0;
+	{// clamp_pitch_and_roll_r
+    Motor_Struct.MOTOR_NAME = clamp_pitch_and_roll_r;
+    Motor_Struct.MOTOR_TYPE = M2006;
+    Motor_Struct.Brushless.CAN_ID = 2;
+    Motor_Struct.Brushless.ESC_ID = 7;
+	Motor_Struct.Brushless.Speed_or_Angle_flag=1;
+    Motor_Struct.Brushless.speed = 0; // 大角度差下速度
+    Motor_Struct.Brushless.state = 0;
+    Motor_Struct.Brushless.offset_angle_init_flag = 0;
+		Motor_Struct.Brushless.offset_angle_init_speed = -800;
 
     memcpy(&Motor[Motor_Struct.MOTOR_NAME], &Motor_Struct, sizeof(Motor_Struct));
     memset(&Motor_Struct, 0, sizeof(Motor_Struct));
@@ -151,7 +155,7 @@ void Motor_base_init()
 
 
 
-	{// SLIDE_CLAMP INIT
+	{// joint_3_yaw
     Motor_Struct.MOTOR_NAME = joint_3_yaw;
     Motor_Struct.MOTOR_TYPE = M2006;
     Motor_Struct.Brushless.CAN_ID = 2;
@@ -166,7 +170,7 @@ void Motor_base_init()
     memset(&Motor_Struct, 0, sizeof(Motor_Struct));
 	}
 
-	{// EXCHANGE_YAW INIT
+	{// joint_1
     Motor_Struct.MOTOR_NAME = joint_1;
     Motor_Struct.MOTOR_TYPE = go_8010;
 		Motor_Struct.Brushless.GO_ID=GO_8010_1;
@@ -179,7 +183,7 @@ void Motor_base_init()
     memset(&Motor_Struct, 0, sizeof(Motor_Struct));
 	}
 
-	{// EXCHANGE_PITCH INIT
+	{// joint_2 INIT
     Motor_Struct.MOTOR_NAME = joint_2;
     Motor_Struct.MOTOR_TYPE = go_8010; 
 		Motor_Struct.Brushless.GO_ID=GO_8010_2; 
@@ -193,17 +197,17 @@ void Motor_base_init()
 	}
 	
 
-	{// EXCHANGE_ROLL INIT
-    Motor_Struct.MOTOR_NAME = EXCHANGE_ROLL;
-    Motor_Struct.MOTOR_TYPE = SERVO;
-    Motor_Struct.Servo.TIM = TIM4;
-    Motor_Struct.Servo.Compare = 4; // PD15
-    Motor_Struct.Servo.Rotation_range = 270;
+//	{// EXCHANGE_ROLL INIT
+//    Motor_Struct.MOTOR_NAME = EXCHANGE_ROLL;
+//    Motor_Struct.MOTOR_TYPE = SERVO;
+//    Motor_Struct.Servo.TIM = TIM4;
+//    Motor_Struct.Servo.Compare = 4; // PD15
+//    Motor_Struct.Servo.Rotation_range = 270;
 
-    memcpy(&Motor[Motor_Struct.MOTOR_NAME], &Motor_Struct, sizeof(Motor_Struct));
-    memset(&Motor_Struct, 0, sizeof(Motor_Struct));
-	}
-	{// SLIDE_CLAMP INIT
+//    memcpy(&Motor[Motor_Struct.MOTOR_NAME], &Motor_Struct, sizeof(Motor_Struct));
+//    memset(&Motor_Struct, 0, sizeof(Motor_Struct));
+//	}
+	{// exchang_pitch_and_roll_l I  NIT
     Motor_Struct.MOTOR_NAME = exchang_pitch_and_roll_l;
     Motor_Struct.MOTOR_TYPE = M2006;
     Motor_Struct.Brushless.CAN_ID = 2;
@@ -267,7 +271,7 @@ void Motor_pid_init(INIT_STATUS init_status)
     Motor_PID_Struct_Init(&Motor[CHASSIS_FR], PID_Motor_parameter_Struct, init_status);
 	}
 
-	// UPRISE_L
+	// UPRISE
 	{
     PID_Motor_parameter_Struct.MOTOR_NAME = UPRAISE;
     PID_Motor_parameter_Struct.angle.p = 30;
@@ -285,7 +289,7 @@ void Motor_pid_init(INIT_STATUS init_status)
     Motor_PID_Struct_Init(&Motor[UPRAISE], PID_Motor_parameter_Struct, init_status);
 	}
 	
-	// UPRISE_L
+	// UPRISE_CLAMP
 	{
     PID_Motor_parameter_Struct.MOTOR_NAME = UPRAISE_CLAMP;
     PID_Motor_parameter_Struct.angle.p = 30;
@@ -320,9 +324,9 @@ void Motor_pid_init(INIT_STATUS init_status)
 
     Motor_PID_Struct_Init(&Motor[CLAMP_YAW], PID_Motor_parameter_Struct, init_status);
 	}
-
+        //clamp_pitch_and_roll_l
 	{
-    PID_Motor_parameter_Struct.MOTOR_NAME = CLAMP_PITCH;
+    PID_Motor_parameter_Struct.MOTOR_NAME = clamp_pitch_and_roll_l;
     PID_Motor_parameter_Struct.angle.p = 30;
     PID_Motor_parameter_Struct.angle.i = 0.2;
     PID_Motor_parameter_Struct.angle.d = 0;
@@ -335,21 +339,21 @@ void Motor_pid_init(INIT_STATUS init_status)
     PID_Motor_parameter_Struct.speed.max_out = 4000;
     PID_Motor_parameter_Struct.speed.integral_limit = 1500;
 
-    Motor_PID_Struct_Init(&Motor[CLAMP_PITCH], PID_Motor_parameter_Struct, init_status);
+    Motor_PID_Struct_Init(&Motor[clamp_pitch_and_roll_l], PID_Motor_parameter_Struct, init_status);
 	}
 
-	// EXCHANGE_ROLL
+	// CLAMP_SILD
 	{
     PID_Motor_parameter_Struct.MOTOR_NAME = CLAMP_SILD;
-    PID_Motor_parameter_Struct.angle.p = 30;
-    PID_Motor_parameter_Struct.angle.i = 0.2;
+    PID_Motor_parameter_Struct.angle.p = 15.5;
+    PID_Motor_parameter_Struct.angle.i = 0.1;
     PID_Motor_parameter_Struct.angle.d = 0;
     PID_Motor_parameter_Struct.angle.max_out = 4000;
     PID_Motor_parameter_Struct.angle.integral_limit = 500;
 
-    PID_Motor_parameter_Struct.speed.p = 20;
+    PID_Motor_parameter_Struct.speed.p = 16;
     PID_Motor_parameter_Struct.speed.i = 0.01;
-    PID_Motor_parameter_Struct.speed.d = 0.1;
+    PID_Motor_parameter_Struct.speed.d = 0;
     PID_Motor_parameter_Struct.speed.max_out = 6000;
     PID_Motor_parameter_Struct.speed.integral_limit = 500;
 
@@ -357,7 +361,7 @@ void Motor_pid_init(INIT_STATUS init_status)
 	}
 
 
-	// SLIDE_CLMP
+	// joint_3_yaw
 	{
     PID_Motor_parameter_Struct.MOTOR_NAME = joint_3_yaw;
     PID_Motor_parameter_Struct.angle.p = 30;
@@ -393,7 +397,7 @@ void Motor_pid_init(INIT_STATUS init_status)
     Motor_PID_Struct_Init(&Motor[joint_1], PID_Motor_parameter_Struct, init_status);
 	}
 
-	// EXCHANGE_PITCH
+	// joint_2
 	{
     PID_Motor_parameter_Struct.MOTOR_NAME = joint_2;
     PID_Motor_parameter_Struct.angle.p = 0.1;
@@ -410,24 +414,24 @@ void Motor_pid_init(INIT_STATUS init_status)
 
     Motor_PID_Struct_Init(&Motor[joint_2], PID_Motor_parameter_Struct, init_status);
 	}
-
+       //clamp_pitch_and_roll_r
 	{
-    PID_Motor_parameter_Struct.MOTOR_NAME = EXCHANGE_ROLL;
-    PID_Motor_parameter_Struct.angle.p = 0;
-    PID_Motor_parameter_Struct.angle.i = 0;
+    PID_Motor_parameter_Struct.MOTOR_NAME = clamp_pitch_and_roll_r;
+    PID_Motor_parameter_Struct.angle.p = 30;
+    PID_Motor_parameter_Struct.angle.i = 0.2;
     PID_Motor_parameter_Struct.angle.d = 0;
-    PID_Motor_parameter_Struct.angle.max_out = 0;
-    PID_Motor_parameter_Struct.angle.integral_limit = 0;
+    PID_Motor_parameter_Struct.angle.max_out = 2000;
+    PID_Motor_parameter_Struct.angle.integral_limit = 500;
 
-    PID_Motor_parameter_Struct.speed.p = 60.0;
+    PID_Motor_parameter_Struct.speed.p = 20.0;
     PID_Motor_parameter_Struct.speed.i = 0.01;
     PID_Motor_parameter_Struct.speed.d = 0.1;
-    PID_Motor_parameter_Struct.speed.max_out = 30000;
-    PID_Motor_parameter_Struct.speed.integral_limit = 30000;
+    PID_Motor_parameter_Struct.speed.max_out = 4000;
+    PID_Motor_parameter_Struct.speed.integral_limit = 1500;
 
-    Motor_PID_Struct_Init(&Motor[EXCHANGE_ROLL], PID_Motor_parameter_Struct, init_status);
+    Motor_PID_Struct_Init(&Motor[clamp_pitch_and_roll_r], PID_Motor_parameter_Struct, init_status);
 	}
-	// EXCHANGE_ROLL
+	// exchang_pitch_and_roll_l
 	{
     PID_Motor_parameter_Struct.MOTOR_NAME = exchang_pitch_and_roll_l;
     PID_Motor_parameter_Struct.angle.p = 30;
@@ -444,7 +448,7 @@ void Motor_pid_init(INIT_STATUS init_status)
 
     Motor_PID_Struct_Init(&Motor[exchang_pitch_and_roll_l], PID_Motor_parameter_Struct, init_status);
 	}
-		// EXCHANGE_ROLL
+		// exchang_pitch_and_roll_r
 	{
     PID_Motor_parameter_Struct.MOTOR_NAME = exchang_pitch_and_roll_r;
     PID_Motor_parameter_Struct.angle.p = 30;
@@ -453,11 +457,11 @@ void Motor_pid_init(INIT_STATUS init_status)
     PID_Motor_parameter_Struct.angle.max_out = 4000;
     PID_Motor_parameter_Struct.angle.integral_limit = 500;
 
-    PID_Motor_parameter_Struct.speed.p = 60.0;
+    PID_Motor_parameter_Struct.speed.p = 20.0;
     PID_Motor_parameter_Struct.speed.i = 0.01;
     PID_Motor_parameter_Struct.speed.d = 0.1;
     PID_Motor_parameter_Struct.speed.max_out = 4000;
-    PID_Motor_parameter_Struct.speed.integral_limit = 2000;
+    PID_Motor_parameter_Struct.speed.integral_limit = 500;
 
     Motor_PID_Struct_Init(&Motor[exchang_pitch_and_roll_r], PID_Motor_parameter_Struct, init_status);
 	}
@@ -471,7 +475,7 @@ void Machine_angle_init()
 		Machine_angle[Upraise_clamp].Machine_angle_l.normal_angle=10;//max805  23
 		Machine_angle[Upraise].Machine_angle_l.normal_angle=600;	//max2305	
 		Machine_angle[Clamp_sild].Machine_angle_l.normal_angle=20;
-		Machine_angle[Clamp_pitch].Machine_angle_l.normal_angle=90;
+		Machine_angle[Clamp_pitch].Machine_angle_l.normal_angle=-90;
 		Machine_angle[Clamp_roll].Machine_angle_l.normal_angle=0;
 		Machine_angle[Clamp_yaw].Machine_angle_l.normal_angle=0;
 		Machine_angle[Joint_1].Machine_angle_l.normal_angle=-0.78*6.33;//-0.261
@@ -494,9 +498,9 @@ void Machine_angle_init()
 		Machine_angle[Actuator_pitch].Machine_angle_l.exchange_angle=-40;
 	}
 	{
-		Machine_angle[Upraise_clamp].Machine_angle_l.store_angle=14;
-		Machine_angle[Upraise].Machine_angle_l.store_angle=200;         //366
-		Machine_angle[Clamp_sild].Machine_angle_l.store_angle=-18;
+		Machine_angle[Upraise_clamp].Machine_angle_l.store_angle=12;
+		Machine_angle[Upraise].Machine_angle_l.store_angle=190;         //366
+		Machine_angle[Clamp_sild].Machine_angle_l.store_angle=-16;
 		Machine_angle[Clamp_pitch].Machine_angle_l.store_angle=0;
 		Machine_angle[Clamp_roll].Machine_angle_l.store_angle=0;        
 		Machine_angle[Clamp_yaw].Machine_angle_l.store_angle=0;
@@ -504,7 +508,7 @@ void Machine_angle_init()
 		Machine_angle[Joint_2].Machine_angle_l.store_angle=0.769*6.33;     //2.36
 		Machine_angle[Actuator_yaw].Machine_angle_l.store_angle=-110;
 		Machine_angle[Actuator_roll].Machine_angle_l.store_angle=0;
-		Machine_angle[Actuator_pitch].Machine_angle_l.store_angle=-40;
+		Machine_angle[Actuator_pitch].Machine_angle_l.store_angle=-45;
 	}
 	{
 		Machine_angle[Upraise_clamp].Machine_angle_l.exchange_pick_angle=13;
@@ -562,7 +566,7 @@ void Machine_angle_init()
 		Machine_angle[Upraise_clamp].Machine_angle_l.smallisland_angle=0;
 		Machine_angle[Upraise].Machine_angle_l.smallisland_angle=600;
 		Machine_angle[Clamp_sild].Machine_angle_l.smallisland_angle=0;
-		Machine_angle[Clamp_pitch].Machine_angle_l.smallisland_angle=90;
+		Machine_angle[Clamp_pitch].Machine_angle_l.smallisland_angle=-90;
 		Machine_angle[Clamp_roll].Machine_angle_l.smallisland_angle=0;
 		Machine_angle[Clamp_yaw].Machine_angle_l.smallisland_angle=0;
 		Machine_angle[Joint_1].Machine_angle_l.smallisland_angle=0;
@@ -620,8 +624,11 @@ void Motor_angle_init_test()
 	//couple参数说明：前两个为机构角度，第三个是想赋值的电机，第四第五分别是前两个机构的赋值，第六个是比率
 	config_full_mapping_one(Upraise,UPRAISE,1);
 	config_full_mapping_one(Upraise_clamp,UPRAISE_CLAMP,-35);
-	config_full_mapping_one(Clamp_pitch,CLAMP_PITCH,3);
-	config_full_mapping_one(Clamp_roll,CLAMP_ROLL,1);
+//	config_full_mapping_one(Clamp_pitch,CLAMP_PITCH,3);
+//	config_full_mapping_one(Clamp_roll,CLAMP_ROLL,1);
+	config_full_mapping_couple(Clamp_pitch,Clamp_roll,clamp_pitch_and_roll_l,2.3,-2.3,1);
+	config_full_mapping_couple(Clamp_pitch,Clamp_roll,clamp_pitch_and_roll_r,-2.3,-2.3,1);
+	
 	config_full_mapping_one(Clamp_yaw,CLAMP_YAW,1);
 	config_full_mapping_one(Clamp_sild,CLAMP_SILD,45);
 	config_full_mapping_one(Joint_1,joint_1,1);
@@ -691,7 +698,7 @@ void Motor_task(void *parm)
 				else//堵转结束
 				{
 					clamp_angle_handle();
-					for(ID=8;ID<MOTOR_NUMBER;ID++)//正式运行
+					for(ID=7;ID<MOTOR_NUMBER;ID++)//正式运行
 					{
 					if((Motor[ID].MOTOR_NAME>CHASSIS_BR) && (Whether_Brushless_Motor(Motor[ID])))//底盘没改，不在这里进行计算
 						{
@@ -799,7 +806,7 @@ uint8_t Motor_offset_angle_init(void)
 	uint8_t all_init_state;
 	all_init_state=1;
 	
-	for(ID=8;ID<MOTOR_NUMBER;ID++)//堵转初始化
+	for(ID=7;ID<MOTOR_NUMBER;ID++)//堵转初始化
 	{
 		if(Motor[ID].MOTOR_NAME>CHASSIS_BR && Whether_Brushless_Motor(Motor[ID]))
 		{
@@ -974,7 +981,7 @@ float* get_angle_field(float* mode_angle,int16_t count)
 
 
 //双角度映射
-void config_full_mapping_couple(int16_t Machine_ID_l,int16_t Machine_ID,int16_t Motor_ID,int16_t Machine_l_ratio,int16_t Machine_ratio,int16_t total_ratio)
+void config_full_mapping_couple(int16_t Machine_ID_l,int16_t Machine_ID,int16_t Motor_ID,float Machine_l_ratio,float Machine_ratio,int16_t total_ratio)
 {
 	float*Machine_l_scr=&Machine_angle[Machine_ID_l].Machine_angle_l.normal_angle;
 	float*Machine_scr=&Machine_angle[Machine_ID].Machine_angle_l.normal_angle;

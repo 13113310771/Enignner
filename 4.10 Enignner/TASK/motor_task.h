@@ -38,11 +38,11 @@ typedef enum
 
 
   CLAMP_YAW ,
-  CLAMP_ROLL ,
+  
   EXCHANGE_ROLL ,
 	GIMBAL_YAW,
-	
-	CLAMP_PITCH,
+  clamp_pitch_and_roll_l ,
+  clamp_pitch_and_roll_r,
 	CLAMP_SILD,
   UPRAISE,
 	UPRAISE_CLAMP,
@@ -187,7 +187,7 @@ void Motor_pid_clac(uint8_t ID);
 void Motor_current_into_CAN(uint8_t ID);
 uint8_t Whether_Brushless_Motor(motor_t Motor);
 uint8_t motor_8010_speed_get_limit(uint8_t ID);
-void config_full_mapping_couple(int16_t Machine_ID_l,int16_t Machine_ID,int16_t Motor_ID,int16_t Machine_l_ratio,int16_t Machine_ratio,int16_t total_ratio);
+void config_full_mapping_couple(int16_t Machine_ID_l,int16_t Machine_ID,int16_t Motor_ID,float Machine_l_ratio,float Machine_ratio,int16_t total_ratio);
 void config_full_mapping_one(int16_t Machine_ID,int16_t Motor_ID,int16_t total_ratio);
 void Motor_angle_init_test(void);
 void Machine_angle_init(void);

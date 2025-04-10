@@ -193,7 +193,7 @@ void big_island_slanted_clamp_handler(void)
 				if((HAL_GetTick()-clamp_record_time)==200)
 				{
 					//Motor_uprise_angle_change(7000/542*48*2);//1500
-					Motor[CLAMP_PITCH].Angle.mode_angle-=20;
+			//		Motor[CLAMP_PITCH].Angle.mode_angle-=20;
 				}
 				else if((HAL_GetTick()-clamp_record_time)>2000)
 				{
@@ -227,7 +227,7 @@ void small_island_clamp_handler(void)
   {
     case CLAMP_UN_CMD:
     {
-      Motor_change_mode_angle(&Mode.smallisland_angle,CLAMP_PITCH,MOTOR_MAX_ID);
+      Motor_change_mode_angle(&Mode.smallisland_angle,clamp_pitch_and_roll_l,MOTOR_MAX_ID);
       clamp_record_time= HAL_GetTick();
       action_one_state=ACTIONING;
       action_two_state=ACTIONING;
@@ -244,7 +244,7 @@ void small_island_clamp_handler(void)
       {
 				if((HAL_GetTick()-clamp_record_time)>200&&(HAL_GetTick()-clamp_record_time<250))
 				{
-					Motor_uprise_clamp_angle_change(-9);
+					Motor_uprise_clamp_angle_change(-11);
 				}
 				else if((HAL_GetTick()-clamp_record_time)>1000&&(HAL_GetTick()-clamp_record_time<1100))
 				{
@@ -268,7 +268,10 @@ void small_island_clamp_handler(void)
 	  {
 		  if((HAL_GetTick()-clamp_record_time)>200&&(HAL_GetTick()-clamp_record_time<250))
 			{
-				Motor[CLAMP_PITCH].Angle.mode_angle=0;
+				Motor[clamp_pitch_and_roll_l].Angle.mode_angle=0;
+			    Motor[clamp_pitch_and_roll_r].Angle.mode_angle=0;
+
+				
 				Motor[CLAMP_SILD].Angle.mode_angle=-18*45;
 			}
 
@@ -387,12 +390,16 @@ uint8_t store_handler(void)
 					Motor_change_mode_angle(&Mode.store_angle,UPRAISE,MOTOR_MAX_ID);
 				if(store_action_times==2500)
 				{
-					Motor[CLAMP_PITCH].Angle.mode_angle-=5;
+					
+			//		Motor[CLAMP_PITCH].Angle.mode_angle-=5;
+
+				
+		
 					//Motor_uprise_angle_change(-2400);
 				}
 				if(store_action_times==3500)
 				{
-					CLAMP_OFF
+				//	CLAMP_OFF
 				}
 				if(store_action_times==5500)
 				{
@@ -400,20 +407,20 @@ uint8_t store_handler(void)
 				}
 				if(store_action_times>=6500)
 				{
-					finish_flag=1;
+					finish_flag=0;
 				}
 			}			
 			else if(chassis_mode==CHASSIS_CLAMP_SMALL_ISLAND_MODE)
 		 {
 			 if(store_action_times>10&&store_action_times<60)
 			 {
-				 Motor_change_mode_angle(&Mode.store_angle,CLAMP_PITCH,MOTOR_MAX_ID);
+				 Motor_change_mode_angle(&Mode.store_angle,clamp_pitch_and_roll_l,MOTOR_MAX_ID);
 				 
 			 }
 			 
 		   else if(store_action_times>1000&&store_action_times<1100)
 			{
-		      CLAMP_OFF
+		         CLAMP_OFF
 			}				 
 		if(store_action_times>=1500)
 			{
@@ -443,7 +450,7 @@ uint8_t pick_handler(void)
 		 
 		
 		
-				 Motor_change_mode_angle(&Mode.exchange_pick_angle,CLAMP_PITCH,MOTOR_MAX_ID);
+				 Motor_change_mode_angle(&Mode.exchange_pick_angle,clamp_pitch_and_roll_l,MOTOR_MAX_ID);
 				 
 	}
 	else if(pick_action_times>1000&&pick_action_times<1100)

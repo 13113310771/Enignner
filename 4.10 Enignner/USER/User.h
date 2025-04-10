@@ -1,11 +1,11 @@
 #ifndef _user_H
 #define _user_H
 
-#define CLAMP_ON   	 	 GPIO_SetBits(GPIOE,GPIO_Pin_5);      //夹取电磁阀
-#define CLAMP_OFF   	 		GPIO_ResetBits(GPIOE,GPIO_Pin_5);
+#define CLAMP_OFF   	 	 GPIO_SetBits(GPIOE,GPIO_Pin_5);      //夹取电磁阀
+#define CLAMP_ON   	 		GPIO_ResetBits(GPIOE,GPIO_Pin_5);
 
-#define Air_Pump_Clamp_ON   	 	       GPIO_ResetBits(GPIOC,GPIO_Pin_2);
-#define Air_Pump_Clamp_OFF   	 				GPIO_SetBits(GPIOC,GPIO_Pin_2);   //夹取气泵
+#define Air_Pump_Clamp_OFF   	 	       GPIO_ResetBits(GPIOC,GPIO_Pin_2);
+#define Air_Pump_Clamp_ON   	 				GPIO_SetBits(GPIOC,GPIO_Pin_2);   //夹取气泵
 
 #define Air_Pump_Exchange_OFF   	 	  GPIO_ResetBits(GPIOF,GPIO_Pin_1);       //兑换气泵
 #define Air_Pump_Exchange_ON   	 			 GPIO_SetBits(GPIOF,GPIO_Pin_1);
