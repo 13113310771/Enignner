@@ -1,0 +1,603 @@
+{
+  "name": "engineering",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "USER",
+        "files": [
+          {
+            "path": "main.c"
+          },
+          {
+            "path": "stm32f4xx_it.c"
+          },
+          {
+            "path": "system_stm32f4xx.c"
+          },
+          {
+            "path": "../USER_CONF/start_task.c"
+          },
+          {
+            "path": "STM32_TIM_BASE.c"
+          },
+          {
+            "path": "arm_cortexM4lf_math.lib"
+          },
+          {
+            "path": "User.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Bsp_device",
+        "files": [
+          {
+            "path": "../BSP_CONF/bsp_can.c"
+          },
+          {
+            "path": "../BSP_CONF/bsp_flash.c"
+          },
+          {
+            "path": "../BSP_CONF/bsp_trigonometry.c"
+          },
+          {
+            "path": "../BSP_CONF/bsp_dwt.c"
+          },
+          {
+            "path": "../BSP_CONF/bsp_dwt.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "BMI088",
+        "files": [
+          {
+            "path": "../BMI088/devices/BMI088driver.c"
+          },
+          {
+            "path": "../BMI088/devices/BMI088driver.h"
+          },
+          {
+            "path": "../BMI088/devices/BMI088Middleware.c"
+          },
+          {
+            "path": "../BMI088/devices/BMI088Middleware.h"
+          },
+          {
+            "path": "../BMI088/devices/BMI088reg.h"
+          },
+          {
+            "path": "../BMI088/devices/struct_typedef.h"
+          },
+          {
+            "path": "../BMI088/algorithm/AHRS_middleware.c"
+          },
+          {
+            "path": "../BMI088/algorithm/filters.c"
+          },
+          {
+            "path": "../BMI088/algorithm/MahonyAHRS.c"
+          },
+          {
+            "path": "../BMI088/algorithm/AHRS.h"
+          },
+          {
+            "path": "../BMI088/algorithm/AHRS.lib"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Task",
+        "files": [
+          {
+            "path": "../TASK/modeswitch_task.c"
+          },
+          {
+            "path": "../TASK/comm_task.c"
+          },
+          {
+            "path": "../TASK/chassis_task.c"
+          },
+          {
+            "path": "../TASK/info_get_task.c"
+          },
+          {
+            "path": "../TASK/detect_task.c"
+          },
+          {
+            "path": "../TASK/judge_task.c"
+          },
+          {
+            "path": "../TASK/controller.c"
+          },
+          {
+            "path": "../TASK/motor_task.c"
+          },
+          {
+            "path": "../TASK/comm_8010_task.c"
+          },
+          {
+            "path": "../TASK/comm_8010_task.h"
+          },
+          {
+            "path": "../TASK/imu_task.c"
+          },
+          {
+            "path": "../TASK/imu_task.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Protocol",
+        "files": [
+          {
+            "path": "../PROTOCOL/protocol.c"
+          },
+          {
+            "path": "../PROTOCOL/data_fifo.c"
+          },
+          {
+            "path": "../PROTOCOL/data_packet.c"
+          },
+          {
+            "path": "../PROTOCOL/judge_rx_data.c"
+          },
+          {
+            "path": "../PROTOCOL/judge_tx_data.c"
+          },
+          {
+            "path": "../PROTOCOL/pc_rx_data.c"
+          },
+          {
+            "path": "../PROTOCOL/pc_tx_data.c"
+          },
+          {
+            "path": "../PROTOCOL/crc.c"
+          },
+          {
+            "path": "../PROTOCOL/crc.h"
+          },
+          {
+            "path": "../PROTOCOL/motor_8010.c"
+          },
+          {
+            "path": "../PROTOCOL/motor_8010.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Funtion",
+        "files": [
+          {
+            "path": "../TASK/pc_task.c"
+          },
+          {
+            "path": "../FUNTION/fuzzy_pid.c"
+          },
+          {
+            "path": "../FUNTION/kalman_filter.c"
+          },
+          {
+            "path": "../FUNTION/keyboard.c"
+          },
+          {
+            "path": "../FUNTION/remote_ctrl.c"
+          },
+          {
+            "path": "../FUNTION/ramp.c"
+          },
+          {
+            "path": "../FUNTION/pid.c"
+          },
+          {
+            "path": "../FUNTION/clamp.c"
+          },
+          {
+            "path": "filter.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "User_conf",
+        "files": [
+          {
+            "path": "../USER_CONF/delay.c"
+          },
+          {
+            "path": "../USER_CONF/gpio.c"
+          },
+          {
+            "path": "../USER_CONF/can.c"
+          },
+          {
+            "path": "../USER_CONF/usart.c"
+          },
+          {
+            "path": "../USER_CONF/spi.c"
+          },
+          {
+            "path": "../USER_CONF/rc.c"
+          },
+          {
+            "path": "../USER_CONF/dma.c"
+          },
+          {
+            "path": "../USER_CONF/tim.c"
+          },
+          {
+            "path": "../USER_CONF/sys_config.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "CORE",
+        "files": [
+          {
+            "path": "../CORE/startup_stm32f427_437xx.s"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "FWLIB",
+        "files": [
+          {
+            "path": "../FWLIB/src/misc.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_adc.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_can.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_cec.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_crc.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_cryp.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_cryp_aes.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_cryp_des.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_cryp_tdes.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_dac.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_dbgmcu.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_dcmi.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_dma.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_dma2d.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_exti.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_flash.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_flash_ramfunc.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_fmpi2c.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_gpio.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_hash.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_hash_md5.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_hash_sha1.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_i2c.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_iwdg.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_ltdc.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_pwr.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_qspi.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_rcc.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_rng.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_rtc.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_sai.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_sdio.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_spdifrx.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_spi.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_syscfg.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_tim.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_usart.c"
+          },
+          {
+            "path": "../FWLIB/src/stm32f4xx_wwdg.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "FreeRTOS",
+        "files": [
+          {
+            "path": "../FreeRTOS/croutine.c"
+          },
+          {
+            "path": "../FreeRTOS/event_groups.c"
+          },
+          {
+            "path": "../FreeRTOS/list.c"
+          },
+          {
+            "path": "../FreeRTOS/queue.c"
+          },
+          {
+            "path": "../FreeRTOS/tasks.c"
+          },
+          {
+            "path": "../FreeRTOS/timers.c"
+          },
+          {
+            "path": "../FreeRTOS/portable/MemMang/heap_4.c"
+          },
+          {
+            "path": "../FreeRTOS/portable/RVDS/ARM_CM4F/port.c"
+          }
+        ],
+        "folders": []
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "9d1997802d8263b3cc4fd4306467adda"
+  },
+  "targets": {
+    "ENGINEER": {
+      "excludeList": [],
+      "toolchain": "AC5",
+      "compileConfig": {
+        "cpuType": "Cortex-M4",
+        "floatingPointHardware": "single",
+        "scatterFilePath": "",
+        "useCustomScatterFile": false,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x30000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x10000000",
+                "size": "0x10000"
+              },
+              "isChecked": false,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0x200000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "JLink",
+      "uploadConfig": {
+        "bin": "",
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "ST",
+          "cpuName": "STM32F427II"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {},
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "../CORE",
+          "../FWLIB/inc",
+          ".",
+          "../FreeRTOS/include",
+          "../FreeRTOS/portable/MemMang",
+          "../FreeRTOS/portable/RVDS/ARM_CM4F",
+          "../USER_CONF",
+          "../BSP_CONF",
+          "../TASK",
+          "../FUNTION",
+          "../PROTOCOL",
+          "include",
+          "../BMI088",
+          "../BMI088/algorithm/Include",
+          "../BMI088/devices",
+          "../BMI088/algorithm",
+          "RTE/_ENGINEER"
+        ],
+        "libList": [],
+        "defineList": [
+          "USE_STDPERIPH_DRIVER",
+          "STM32F427_437xx",
+          "ARM_MATH_CM4",
+          "__FPU_PRESENT=1",
+          "__TARGET_FPU_VFP",
+          "__CC_ARM",
+          "ARM_MATH_MATRIX_CHECK",
+          "ARM_MATH_ROUNDING"
+        ]
+      },
+      "builderOptions": {
+        "AC5": {
+          "version": 4,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "use-microLIB": true,
+            "output-debug-info": "enable"
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-1",
+            "one-elf-section-per-function": true,
+            "c99-mode": true,
+            "C_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "CXX_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "warnings": "all-warnings"
+          },
+          "asm-compiler": {},
+          "linker": {
+            "output-format": "elf",
+            "xo-base": "",
+            "ro-base": "0x08000000",
+            "rw-base": "0x20000000"
+          }
+        }
+      }
+    }
+  },
+  "version": "3.5"
+}
